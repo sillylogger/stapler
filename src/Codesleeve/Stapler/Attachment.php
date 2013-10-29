@@ -1,6 +1,6 @@
 <?php namespace Codesleeve\Stapler;
 
-use App;
+use Illuminate\Support\Facades\App;
 
 class Attachment
 {
@@ -372,9 +372,6 @@ class Attachment
 	 */
 	protected function flushWrites()
 	{
-
-        dd(get_class_methods($this));
-
 		foreach ($this->queuedForWrite as $style)
 		{
       if ($style->value && $this->uploadedFile->isImage()) {
@@ -477,6 +474,7 @@ class Attachment
      */
     protected function queueAllForDeletion()
     {
+
 		if (!$this->originalFilename()) {
 			return;
 		}
